@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock-body {
+  background-color: red;
+  padding: 100px;
+  border-radius: 88px;
+  align-content: center;
+}
+
+.display {
+  background-color: white;
+  color: black;
+  margin: auto;
+  padding: 40px;
+  border-radius: 19px;
+}
