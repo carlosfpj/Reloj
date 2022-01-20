@@ -19,13 +19,23 @@ function displayTime() {
 function setLinearBackground(time) {
   console.log("time: " + time + "de tipo: " + typeof(time));
   const body = document.querySelector("body")
+  const wrapper = document.querySelector(".wrapper")
+  const parser = new DOMParser()
+  const imageTemplate = `<img src="../../icons/moon.png"></img>`
+  let dayNightImage = "";
+  const HTML = parser.parseFromString(imageTemplate, "text/html")
+  let image = HTML.body.firstChild
 
   if(((time >= 18) && (time <= 19)) || ((time >= 4) && (time <= 5))) {
     body.style.background = "linear-gradient(var(--edgeNight), var(--white))";
+    dayNightImage = "moon"
+    wrapper.append(image)
     console.log("edgenight");
   }
   else if((time>=20) || (time <= 4)) {
     body.style.background = "linear-gradient(var(--middleNight), var(--white))";
+    dayNightImage = "moon"
+    wrapper.appendChild(image)
     console.log("Middlenight");
   }
   else if ((time >= 6 && time <= 7) || (time >= 17 && time <= 18)) {
