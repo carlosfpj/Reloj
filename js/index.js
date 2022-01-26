@@ -1,3 +1,3 @@
-import init from './core/core.js'
+import init from './core/context.js'
 
 init()
