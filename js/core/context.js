@@ -41,7 +41,7 @@ function setLinearBackground() {
       body.style.background = "linear-gradient(var(--edgeNight), var(--white))";
       const wrapper = document.querySelector(".wrapper")
       const parser = new DOMParser()
-      const imageTemplate = `<img src="../../icons/moon.png"></img>`
+      const imageTemplate = `<img class="image" src="../../icons/moon.png"></img>`
       const HTML = parser.parseFromString(imageTemplate, "text/html")
       let image = HTML.body.firstChild
       wrapper.appendChild(image)
@@ -51,7 +51,7 @@ function setLinearBackground() {
       body.style.background = "linear-gradient(var(--middleNight), var(--white))";
       const wrapper = document.querySelector(".wrapper")
       const parser = new DOMParser()
-      const imageTemplate = `<img src="../../icons/moon.png"></img>`
+      const imageTemplate = `<img class="image" src="../../icons/moon.png"></img>`
       const HTML = parser.parseFromString(imageTemplate, "text/html")
       let image = HTML.body.firstChild
       wrapper.appendChild(image)
@@ -61,7 +61,7 @@ function setLinearBackground() {
       body.style.background = "linear-gradient(var(--edgeDay), var(--white))";
       const wrapper = document.querySelector(".wrapper")
       const parser = new DOMParser()
-      const imageTemplate = `<img src="../../icons/sun.png"></img>`
+      const imageTemplate = `<img class="image" src="../../icons/sun.png"></img>`
       const HTML = parser.parseFromString(imageTemplate, "text/html")
       let image = HTML.body.firstChild
       wrapper.appendChild(image)
@@ -69,9 +69,9 @@ function setLinearBackground() {
     }
     else if (hour >= 8 && hour <= 16) {
       body.style.background = "linear-gradient(var(--middleDay), var(--white))";
-      const wrapper = document.querySelector(".wrapper")
+      const wrapper = document.querySelector("body")
       const parser = new DOMParser()
-      const imageTemplate = `<img src="../../icons/sun.png"></img>`
+      const imageTemplate = `<img class="image" src="../../icons/sun.png"></img>`
       const HTML = parser.parseFromString(imageTemplate, "text/html")
       let image = HTML.body.firstChild
       wrapper.appendChild(image)

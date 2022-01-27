@@ -48,3 +48,9 @@ body {
   border-radius: 19px;
   text-align: center;
 }
+
+.image {
+  width: 150px;
+  height: 150px;
+  transform: translate(-50%, -240%);
+}
