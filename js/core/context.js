@@ -5,22 +5,19 @@ let hour = {}
 export default function init() {
   Clock()
   getHours()
-  setLinearBackground()
   setDisplayTime()
+  setLinearBackground()
 }
 
 function Clock() {
   setInterval(getTime, 1000)
 }
 
-// function Interval() {
-//   getHours().then(setLinearBackground)
-//   .catch(e)
-// }
-
 function getHours() {
-  hour = getTime().hours
-  console.log(hour);
+  return new Promise((resolve, reject) => {
+    hour = getTime().hours
+    resolve(hour)
+  })
 }
 
 function setDisplayTime() {
@@ -35,39 +32,50 @@ function setDisplayTime() {
  }
 
 function setLinearBackground() {
+  getHours()
+  .then((hour) => {
+    console.log(hour);
+    const body = document.querySelector("body")
 
-  console.log(hour);
-  // console.log("time: " + time + "de tipo: " + typeof(time));
-  const body = document.querySelector("body")
-  const wrapper = document.querySelector(".wrapper")
-  const parser = new DOMParser()
-  let dayNightImage = "";
-  const imageTemplate = `<img src="../../icons/${dayNightImage}png"></img>`
-  const HTML = parser.parseFromString(imageTemplate, "text/html")
-  let image = HTML.body.firstChild
-
-  if(((hour >= 18) && (hour <= 19)) || ((hour >= 4) && (hour <= 5))) {
-    body.style.background = "linear-gradient(var(--edgeNight), var(--white))";
-    dayNightImage = "moon"
-    wrapper.append(image)
-    console.log("edgenight");
-  }
-  else if((hour >= 20) || (hour <= 4)) {
-    body.style.background = "linear-gradient(var(--middleNight), var(--white))";
-    dayNightImage = "moon"
-    wrapper.appendChild(image)
-    console.log("Middlenight");
-  }
-  else if ((hour >= 6 && hour <= 7) || (hour >= 17 && hour <= 18)) {
-    body.style.background = "linear-gradient(var(--edgeDay), var(--white))";
-    dayNightImage = "sun"
-    wrapper.appendChild(image)
-    console.log("edgeDay");
-  }
-  else if (hour >= 8 && hour <= 16) {
-    body.style.background = "linear-gradient(var(--middleDay), var(--white))";
-    dayNightImage = "sun"
-    wrapper.appendChild(image)
-    console.log("middleDay");
- }
+    if(((hour >= 18) && (hour <= 19)) || ((hour >= 4) && (hour <= 5))) {
+      body.style.background = "linear-gradient(var(--edgeNight), var(--white))";
+      const wrapper = document.querySelector(".wrapper")
+      const parser = new DOMParser()
+      const imageTemplate = `<img src="../../icons/moon.png"></img>`
+      const HTML = parser.parseFromString(imageTemplate, "text/html")
+      let image = HTML.body.firstChild
+      wrapper.appendChild(image)
+      console.log("edgenight");
+    }
+    else if((hour >= 20) || (hour <= 4)) {
+      body.style.background = "linear-gradient(var(--middleNight), var(--white))";
+      const wrapper = document.querySelector(".wrapper")
+      const parser = new DOMParser()
+      const imageTemplate = `<img src="../../icons/moon.png"></img>`
+      const HTML = parser.parseFromString(imageTemplate, "text/html")
+      let image = HTML.body.firstChild
+      wrapper.appendChild(image)
+      console.log("Middlenight");
+    }
+    else if ((hour >= 6 && hour <= 7) || (hour >= 17 && hour <= 18)) {
+      body.style.background = "linear-gradient(var(--edgeDay), var(--white))";
+      const wrapper = document.querySelector(".wrapper")
+      const parser = new DOMParser()
+      const imageTemplate = `<img src="../../icons/sun.png"></img>`
+      const HTML = parser.parseFromString(imageTemplate, "text/html")
+      let image = HTML.body.firstChild
+      wrapper.appendChild(image)
+      console.log("edgeDay");
+    }
+    else if (hour >= 8 && hour <= 16) {
+      body.style.background = "linear-gradient(var(--middleDay), var(--white))";
+      const wrapper = document.querySelector(".wrapper")
+      const parser = new DOMParser()
+      const imageTemplate = `<img src="../../icons/sun.png"></img>`
+      const HTML = parser.parseFromString(imageTemplate, "text/html")
+      let image = HTML.body.firstChild
+      wrapper.appendChild(image)
+      console.log("middleDay");
+   }
+  })
 }
