@@ -4,7 +4,7 @@ let hour = {}
 
 export default function init() {
   Clock()
-  getHour()
+  getHours()
   setLinearBackground()
   setDisplayTime()
 }
@@ -13,11 +13,14 @@ function Clock() {
   setInterval(getTime, 1000)
 }
 
-function getHour() {
-  setInterval(() => {
-    hour = getTime().hours
-    // console.log(hour);
-  }, 1000);
+// function Interval() {
+//   getHours().then(setLinearBackground)
+//   .catch(e)
+// }
+
+function getHours() {
+  hour = getTime().hours
+  console.log(hour);
 }
 
 function setDisplayTime() {
@@ -32,6 +35,7 @@ function setDisplayTime() {
  }
 
 function setLinearBackground() {
+
   console.log(hour);
   // console.log("time: " + time + "de tipo: " + typeof(time));
   const body = document.querySelector("body")
